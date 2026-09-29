@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VISUALD | Fotografía & Video</title>
+
+    <meta name="description"
+          content="Portafolio profesional de fotografía, video y producción audiovisual.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- =====================================================
+         ESTILOS PARA LOGO + VIDEO DEL BANNER
+         ===================================================== -->
+
+    <style>
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+    display: block;
+    width: 165px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    /* Mantener colores originales del logo */
+    filter: none;
+    opacity: 1;
+
+    transition: transform 0.35s ease;
+}
+
+.logo:hover img {
+    opacity: 1;
+    filter: none;
+    transform: scale(1.02);
+}
+
+
+
+        /* =========================
+           HERO / BANNER
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        /* Video de fondo */
+
+        .hero-video {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+
+            z-index: 0;
+
+            pointer-events: none;
+        }
+
+
+        /* Overlay oscuro sobre el video */
+
+        .hero-overlay {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: 1;
+        }
+
+
+        /* Contenido encima del video */
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* Scroll encima del video */
+
+        .hero .scroll-indicator {
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .logo img {
+                width: 130px;
+            }
+
+            .hero-video {
+                object-position: center center;
+            }
+
+        }
+
+
+        /* =========================
+           CELULARES PEQUEÑOS
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .logo img {
+                width: 118px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header class="header">
+
+    <!-- LOGO VISUALD -->
+
+    <a href="#inicio"
+       class="logo"
+       aria-label="VisualD Producciones">
+
+        <img
+            src="img/visuald-logo.png"
+            alt="VisualD Producciones">
+
+    </a>
+
+
+    <!-- MENU MOBILE -->
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Abrir menú">
+
+        <span></span>
+        <span></span>
+
+    </button>
+
+
+    <!-- NAVEGACIÓN -->
+
+    <nav class="nav" id="nav">
+
+        <a href="#inicio">
+            Inicio
+        </a>
+
+        <a href="#portafolio">
+            Portafolio
+        </a>
+
+        <a href="#servicios">
+            Servicios
+        </a>
+
+        <a href="#sobre-mi">
+            Sobre mí
+        </a>
+
+        <a href="#contacto">
+            Contacto
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO / BANNER PRINCIPAL
+     ===================================================== -->
+
+<section class="hero" id="inicio">
+
+
+    <!-- VIDEO DE FONDO -->
+
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true">
+
+        <source
+            src="img/IMG_7707.mp4"
+            type="video/mp4">
+
+        Tu navegador no soporta video HTML5.
+
+    </video>
+
+
+    <!-- CAPA OSCURA -->
+
+    <div class="hero-overlay"></div>
+
+
+    <!-- CONTENIDO -->
+
+    <div class="hero-content">
+
+
+        <p class="eyebrow">
+
+            FOTOGRAFÍA · VIDEO · PRODUCCIÓN
+
+        </p>
+
+
+        <h1>
+
+            Historias que<br>
+
+            <em>
+                merecen ser vistas.
+            </em>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Creamos imágenes y experiencias audiovisuales
+            que convierten momentos en recuerdos.
+
+        </p>
+
+
+        <a
+            href="#portafolio"
+            class="button">
+
+            Explorar trabajo
+
+        </a>
+
+
+    </div>
+
+
+    <!-- INDICADOR DE SCROLL -->
+
+    <div class="scroll-indicator">
+
+        <span></span>
+
+        SCROLL
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRO
+     ===================================================== -->
+
+<section class="intro">
+
+
+    <div class="section-number">
+        01
+    </div>
+
+
+    <div class="intro-content">
+
+
+        <p class="eyebrow">
+            SOBRE EL TRABAJO
+        </p>
+
+
+        <h2>
+
+            Una mirada diferente
+            para cada historia.
+
+        </h2>
+
+
+        <p>
+
+            Desarrollamos proyectos audiovisuales con una mirada
+            cinematográfica, cuidando cada detalle desde la
+            planificación hasta la entrega final.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PORTAFOLIO
+     ===================================================== -->
+
+<section
+    class="portfolio"
+    id="portafolio">
+
+
+    <div class="section-header">
+
+
+        <div>
+
+
+            <p class="eyebrow">
+
+                02 · PORTAFOLIO
+
+            </p>
+
+
+            <h2>
+
+                Proyectos
+
+            </h2>
+
+
+        </div>
+
+
+
+        <!-- FILTROS -->
+
+        <div class="filters">
+
+
+            <button
+                class="filter active"
+                data-filter="all">
+
+                Todos
+
+            </button>
+
+
+            <button
+                class="filter"
+                data-filter="photo">
+
+                Fotografía
+
+            </button>
+
+
+            <button
+                class="filter"
+                data-filter="video">
+
+                Video
+
+            </button>
+
+
+            <button
+                class="filter"
+                data-filter="events">
+
+                Eventos
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- GRID -->
+
+    <div class="portfolio-grid">
+
+
+      <!-- ====================
+     PROYECTO 1
+==================== -->
+
+<article class="project project-large photo">
+    <a href="pages/15.html" class="project-link">
+        <div class="project-image">
+            <img 
+                src="img/_DSC4505.JPG" 
+                alt="Foto Estudio para Quinceañeras">
+
+            <div class="project-overlay">
+                <span>Fotografía</span>
+                <h3>Foto Estudio para Quinceañeras</h3>
+                <p>Ver proyecto &rarr;</p>
+            </div>
+        </div>
+    </a>
+</article>
+
+        <!-- =========================
+             PROYECTO 2
+        ========================= -->
+
+<article class="project project-large photo">
+    <a href="pages/Bodas.html" class="project-link">
+        <div class="project-image">
+            <img 
+                src="img/Bodas/IMG_6200.JPG" 
+                alt="Fotografia para Grados">
+
+            <div class="project-overlay">
+                <span>Fotografía</span>
+                <h3>Fotografia para Bodas</h3>
+                <p>Ver proyecto &rarr;</p>
+            </div>
+        </div>
+    </a>
+</article>
+
+
+
+        <!-- =========================
+             PROYECTO 3
+        ========================= -->
+
+        <article
+            class="project events">
+
+             <a href="pages/Embarazos.html" class="project-link">
+        <div class="project-image">
+            <img 
+                src="img/Embarazos/1759533840318.jpg"
+                alt="Fotografia para Embarazadas">
+
+            <div class="project-overlay">
+                <span>Fotografía</span>
+                <h3>Fotografia para Embarazadas</h3>
+                <p>Ver proyecto &rarr;</p>
+            </div>
+        </div>
+    </a>
+</article>
+
+
+
+        <!-- =========================
+             PROYECTO 4
+        ========================= -->
+
+        <article
+            class="project events">
+
+             <a href="pages/Grados.html" class="project-link">
+        <div class="project-image">
+            <img 
+                src="img/Grados/IMG_1445.JPG" 
+                alt="Fotografia para Bodas">
+
+            <div class="project-overlay">
+                <span>Fotografía</span>
+                <h3>Fotografia para Grados</h3>
+                <p>Ver proyecto &rarr;</p>
+            </div>
+        </div>
+    </a>
+</article>
+
+
+        <!-- =========================
+             PROYECTO 5
+        ========================= -->
+
+        <article
+            class="project events">
+
+             <a href="pages/artisticas.html" class="project-link">
+        <div class="project-image">
+            <img 
+                src="img/Artisticas/2DFDB1BA-6AF8-431F-92A1-AC4B74C92936_7AF2D01A-6734-40E7-81CA-2E19E3ED2AC4.JPG" 
+                alt="Fotografia para Bodas">
+
+            <div class="project-overlay">
+                <span>Fotografía</span>
+                <h3>Fotografias Artisticas</h3>
+                <p>Ver proyecto &rarr;</p>
+            </div>
+        </div>
+    </a>
+</article>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICIOS
+     ===================================================== -->
+
+<section
+    class="services"
+    id="servicios">
+
+
+    <div class="section-number">
+        03
+    </div>
+
+
+    <div class="section-header">
+
+
+        <div>
+
+
+            <p class="eyebrow">
+                SERVICIOS
+            </p>
+
+
+            <h2>
+                Lo que hacemos
+            </h2>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="services-grid">
+
+
+        <!-- SERVICIO 1 -->
+
+        <div class="service">
+
+
+            <span>
+                01
+            </span>
+
+
+            <h3>
+                Fotografía y Video
+            </h3>
+
+
+            <p>
+
+                Ofrecemos servicios de fotografía profesional y producción de video
+                 para eventos, proyectos personales, empresas, 
+                 comerciales y contenido digital, creando material visual de alta calidad.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- SERVICIO 2 -->
+
+        <div class="service">
+
+
+            <span>
+                02
+            </span>
+
+
+            <h3>
+                Alquiler de Equipos
+            </h3>
+
+
+            <p>
+
+                Alquiler de equipos audiovisuales para la producion de contenido.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- SERVICIO 3 -->
+
+        <div class="service">
+
+
+            <span>
+                03
+            </span>
+
+
+            <h3>
+                Fotografía y Video aéreo
+            </h3>
+
+
+            <p>
+
+                Ofrecemos fotografía y video aéreo con drone para eventos,
+                con tiempo de vuelo hasta de 1 hora y 30 minutos continuos.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- SERVICIO 4 -->
+
+        <div class="service">
+
+
+            <span>
+                04
+            </span>
+
+
+            <h3>
+                Edición
+            </h3>
+
+
+            <p>
+
+                Edición fotográfica y cinematográfica
+                con una estética profesional.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SOBRE MÍ
+     ===================================================== -->
+
+<section class="about" id="sobre-mi">
+
+    <div class="about-image">
+        <video autoplay loop muted playsinline>
+            <source src="img/SobreMy.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+    </div>
+
+    <div class="about-content">
+        <p class="eyebrow">
+            04 · SOBRE MÍ
+        </p>
+
+       <h2>
+
+
+Detrás de cada
+imagen existe
+una historia.
+
+
+</h2>
+
+<p>
+
+
+VisualD nació de una pasión que comenzó
+detrás de una cámara y que, con el tiempo,
+se convirtió en una forma de contar historias.
+
+
+</p>
+
+<p>
+
+
+Durante más de 3 años hemos tenido la oportunidad
+de estar presentes en momentos que significan mucho
+para las personas: celebraciones, sueños cumplidos,
+encuentros, nuevos comienzos y pequeños instantes
+que, sin darnos cuenta, se convierten en recuerdos
+para toda la vida.
+
+
+</p>
+
+<p>
+ 
+
+Desde Yopal, Casanare, hemos construido este proyecto
+con dedicación, aprendiendo en cada historia y
+entendiendo que detrás de cada fotografía y cada video
+hay algo mucho más importante: personas, emociones
+y momentos que no vuelven a repetirse.
+
+
+</p>
+
+
+
+        <a
+            href="#contacto"
+            class="text-link">
+
+            Hablemos de tu proyecto →
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACTO
+     ===================================================== -->
+
+<section
+    class="contact"
+    id="contacto">
+
+
+    <p class="eyebrow">
+
+        05 · CONTACTO
+
+    </p>
+
+
+    <h2>
+
+        ¿Tienes una<br>
+
+        <em>
+            historia que contar?
+        </em>
+
+    </h2>
+
+
+    <p>
+
+        Cuéntanos sobre tu proyecto y
+        construyamos algo increíble.
+
+    </p>
+
+
+
+    <a
+        href="https://wa.me/573228245942?text=Hola%20Daniel%20he%20visto%20tu%20pagina%2C%20estoy%20interesado%20en%20tus%20servicios%20audiovisuales"
+        class="button button-light"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Contactar por WhatsApp
+
+    </a>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+
+    <div class="footer-logo">
+
+        VISUALD PRODUCCIONES
+
+    </div>
+
+
+    <div class="footer-links">
+
+
+        <a href="#">
+            Instagram
+        </a>
+
+
+        <a href="#">
+            Facebook
+        </a>
+
+
+        <a href="#">
+            YouTube
+        </a>
+
+
+    </div>
+
+
+    <p>
+
+        © 2026 VisualD Producciones.
+        Todos los derechos reservados.
+
+    </p>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     LIGHTBOX
+     ===================================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox">
+
+
+    <button class="close-lightbox">
+
+        
+
+    </button>
+
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="">
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="js/script.js"></script>
+
+
+
+</body>
+
+</html>

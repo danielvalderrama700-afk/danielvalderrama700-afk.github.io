@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Galería Fotográfica | VisualD</title>
+
+
+    <style>
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background-color: #ffffff;
+
+            color: #111111;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            margin: 0;
+
+            padding: 40px 20px;
+
+        }
+
+
+        .container {
+
+            max-width: 2000px;
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        h1 {
+
+            font-weight: 600;
+
+            letter-spacing: -0.5px;
+
+            margin: 0 0 8px;
+
+        }
+
+
+        header p {
+
+            color: #666666;
+
+            font-size: 1rem;
+
+            margin: 0;
+
+        }
+
+
+        /* =========================================
+           GALERÍA
+        ========================================= */
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fill,
+                    minmax(280px, 1fr)
+                );
+
+            gap: 24px;
+
+        }
+
+
+        .photo-card {
+
+            background: #ffffff;
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 4px 12px
+                rgba(0, 0, 0, 0.05);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+
+            cursor: pointer;
+
+        }
+
+
+        .photo-card:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0, 0, 0, 0.12);
+
+        }
+
+
+        .photo-card img {
+
+            width: 100%;
+
+            height: 400px;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform 0.4s ease;
+
+        }
+
+
+        .photo-card:hover img {
+
+            transform: scale(1.02);
+
+        }
+
+
+        /* =========================================
+           CARGANDO
+        ========================================= */
+
+        .gallery-loading {
+
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            color: #666666;
+
+        }
+
+
+        /* =========================================
+           GALERÍA VACÍA / ERROR
+        ========================================= */
+
+        .gallery-empty,
+        .gallery-error {
+
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+        }
+
+
+        .gallery-empty h2,
+        .gallery-error h2 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .gallery-empty p,
+        .gallery-error p {
+
+            color: #666666;
+
+        }
+
+
+        /* =========================================
+           LIGHTBOX
+        ========================================= */
+
+        .lightbox {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            background:
+                rgba(0, 0, 0, 0.94);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+        }
+
+
+        .lightbox-content {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+        }
+
+
+        .lightbox-image {
+
+            max-width: 90vw;
+
+            max-height: 85vh;
+
+            object-fit: contain;
+
+            border-radius: 4px;
+
+            box-shadow:
+                0 10px 50px
+                rgba(0, 0, 0, 0.5);
+
+        }
+
+
+        .lightbox-counter {
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            opacity: 0.8;
+
+        }
+
+
+        /* =========================================
+           BOTONES LIGHTBOX
+        ========================================= */
+
+        .lightbox button {
+
+            position: absolute;
+
+            border: none;
+
+            background: rgba(255,255,255,0.12);
+
+            color: white;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+
+            z-index: 10;
+
+        }
+
+
+        .lightbox button:hover {
+
+            background: rgba(255,255,255,0.25);
+
+            transform: scale(1.05);
+
+        }
+
+
+        .lightbox-close {
+
+            top: 20px;
+
+            right: 25px;
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 50%;
+
+            font-size: 32px;
+
+            font-weight: 200;
+
+        }
+
+
+        .lightbox-prev,
+        .lightbox-next {
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 55px;
+
+            height: 55px;
+
+            border-radius: 50%;
+
+            font-size: 24px;
+
+        }
+
+
+        .lightbox-prev {
+
+            left: 25px;
+
+        }
+
+
+        .lightbox-next {
+
+            right: 25px;
+
+        }
+
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+
+            transform:
+                translateY(-50%)
+                scale(1.05);
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+            body {
+
+                padding:
+                    25px 12px;
+
+            }
+
+
+            header {
+
+                margin-bottom: 25px;
+
+            }
+
+
+            h1 {
+
+                font-size: 1.7rem;
+
+            }
+
+
+            .gallery {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 10px;
+
+            }
+
+
+            .photo-card {
+
+                border-radius: 5px;
+
+            }
+
+
+            .photo-card img {
+
+                height: 260px;
+
+            }
+
+
+            .lightbox {
+
+                padding: 10px;
+
+            }
+
+
+            .lightbox-image {
+
+                max-width: 96vw;
+
+                max-height: 82vh;
+
+            }
+
+
+            .lightbox-prev,
+            .lightbox-next {
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 18px;
+
+            }
+
+
+            .lightbox-prev {
+
+                left: 10px;
+
+            }
+
+
+            .lightbox-next {
+
+                right: 10px;
+
+            }
+
+
+            .lightbox-close {
+
+                top: 10px;
+
+                right: 10px;
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 28px;
+
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .gallery {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 7px;
+
+            }
+
+
+            .photo-card img {
+
+                height: 220px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <header>
+
+            <h1>Galería Fotográfica</h1>
+
+            <p>
+                Colección de imágenes y proyectos
+            </p>
+
+        </header>
+
+
+        <!--
+            JAVASCRIPT LEERÁ AUTOMÁTICAMENTE
+            LA CARPETA img/15anos
+        -->
+
+        <main
+            class="gallery"
+            id="gallery"
+            data-folder="Bodas"
+        >
+        </main>
+
+
+    </div>
+
+
+    <!-- JavaScript de la galería -->
+
+   <script src="../js/galeria.js"></script>
+
+<script>
+    console.log("15.html cargó correctamente");
+</script>
+
+</body>
+
+</html>
